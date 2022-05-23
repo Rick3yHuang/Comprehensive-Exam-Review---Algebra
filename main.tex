@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Example: Project Report
+%
+% Source: http://www.howtotex.com
+%
+% Feel free to distribute this example, but please keep the referral
+% to howtotex.com
+% Date: March 2011 
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Edit the title below to update the display in My Documents
+%\title{Project Report}
+%
+%%% Preamble
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage[english]{babel}															% English language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx}	
+\usepackage{url}
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[all]{xy}
+\usepackage{mathtools}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\usepackage{alltt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% New Commands
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+\newcommand{\im}{\ensuremath{\operatorname{im}}}
+\newcommand{\lm}{\ensuremath{\operatorname{LM}}}
+\newcommand{\lt}{\ensuremath{\operatorname{LT}}}
+\newcommand{\lc}{\ensuremath{\operatorname{LC}}}
+\newcommand{\lev}{\ensuremath{\operatorname{lev}}}
+\newcommand{\coker}{\ensuremath{\operatorname{coker}}}
+\newcommand{\initTerm}{\ensuremath{\operatorname{in}}}
+\newcommand{\mingens}{\ensuremath{\operatorname{mingens}}}
+\newcommand{\lex}{\ensuremath{\operatorname{lex}}}
+\newcommand{\lcm}{\ensuremath{\operatorname{lcm}}}
+\newcommand{\grlex}{\ensuremath{\operatorname{grlex}}}
+\newcommand{\grevlex}{\ensuremath{\operatorname{grevlex}}}
+\newcommand{\id}{\ensuremath{\operatorname{id}}}
+\newcommand{\multideg}{\ensuremath{\operatorname{multideg}}}
+\newcommand{\onto}{\ensuremath{\twoheadrightarrow}}
+\newcommand{\into}{\ensuremath{\hookrightarrow}}
+
+%%% Renew Commands
+\renewcommand{\deg}{\ensuremath{\operatorname{deg}}}
+\renewcommand{\max}{\ensuremath{\operatorname{max}}}
+\renewcommand{\to}{\ensuremath{\rightarrow}}
+
+%%% Styles
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{\textbf{Remark}}
+
+\theoremstyle{example}
+\newtheorem{example}{\textbf{Example}}[section]
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+\newtheorem{prop}{Proposition}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{Georgia Tech} \\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge Comprehensive Exam Review - Algebra \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Ruiqi (Rickey) Huang [-3pt]                 \normalsize
+        \today
+}
+\date{}
+%\addbibresource{research.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin document
+\begin{document}
+\maketitle
+\section{Linear Algebra}
+
+\subsection{Linear Algebra II}
+
+\subsubsection{Vector Spaces}
+
+
+
+%%% End document
+\end{document}
