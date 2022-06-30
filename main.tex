@@ -60,6 +60,14 @@ style=alphabetic,
 sorting=ynt
 ]{biblatex}
 \usepackage{alltt}
+\usepackage{fontawesome}
+\usepackage{times}
+\usepackage{xspace}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Custom headers/footers (fancyhdr package)
 \usepackage{fancyhdr}
@@ -96,11 +104,17 @@ sorting=ynt
 \newcommand{\multideg}{\ensuremath{\operatorname{multideg}}}
 \newcommand{\onto}{\ensuremath{\twoheadrightarrow}}
 \newcommand{\into}{\ensuremath{\hookrightarrow}}
+\newcommand{\Division}{\ensuremath{\operatorname{Division}}}
+\newcommand{\Euclidean}{\ensuremath{\operatorname{Euclidean}}}
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 %%% Renew Commands
 \renewcommand{\deg}{\ensuremath{\operatorname{deg}}}
 \renewcommand{\max}{\ensuremath{\operatorname{max}}}
 \renewcommand{\to}{\ensuremath{\rightarrow}}
+\renewcommand{\th}{\ensuremath{\operatorname{th}}}
 
 %%% Styles
 \theoremstyle{definition}
@@ -126,22 +140,488 @@ sorting=ynt
 }
 \author{
 		\normalfont 								\normalsize
-        Ruiqi (Rickey) Huang [-3pt]                 \normalsize
+        Ruiqi (Rickey) Huang                 \\\normalsize
         \today
 }
 \date{}
-%\addbibresource{research.bib}
+\addbibresource{references.bib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Begin document
+%%% Set up
 \begin{document}
 \maketitle
+\thispagestyle{empty}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Table of contents
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin document
 \section{Linear Algebra}
 
-\subsection{Linear Algebra II}
+\subsection{Linear Algebra \RNum{1}}
+
+\subsection{Linear Algebra \RNum{2}}
+
+\paragraph{}
+
+I consulted Sheldon Axler's ``Linear Algebra Done Right'' for reviewing purpose \cite{axler_linear_2015}.
 
 \subsubsection{Vector Spaces}
+
+\paragraph{}
+
+$\mathbb{F}$ is a generalization of $\mathbb{R}$ and $\mathbb{C}$, since they are both fields.
+
+\begin{definition}[\textbf{list, length}]
+    Suppose n is a nonnegative integer. A \textbf{list} of \textbf{length} $n$ is an orderd collection of $n$ elements. A list of length $n$ looks like this:
+    \begin{equation}
+        (x_1, \cdots, x_n).
+    \end{equation}
+    Two lists are equal if and only if they have the same length and the same elements in the same order.
+\end{definition}
+
+\paragraph{}
+
+lists are always finite. Lists differ from sets in two ways: in lists, order matters and repetitions have meaning; in set, order and repetitions are irrelevant.
+
+\begin{definition}[$\mathbb{F}^n$]
+    $\mathbb{F}^n$ is the set of all lists of length $n$ of elements of $\mathbb{F}$:
+    \begin{equation}
+        \mathbb{F}^n = \{(x_1,\cdots,x_n):x_j\in \mathbb{F} \text{ for } j = 1, \cdots, n\}.
+    \end{equation}
+    For $(x_1, \cdots, x_n) \in \mathbb{F}^n$ and $j \in \{1, \cdots, n\}$, we say that $x_j$ is the $j^{\th}$ \textbf{coordinate} of $(x_1, \cdots, x_n)$.
+\end{definition}
+
+\paragraph{}
+
+Additions in $\mathbb{F}^n$ is defined as element-wise additions, and the commutativity of addition in $\mathbb{F}^n$ is the same as in $\mathbb{F}$.
+
+\begin{definition}[$0$]
+    Let $0$ denote the list of length $n$ whose coordinates are all $0$:
+    \begin{equation}
+        0 = (0, \cdots, 0)
+    \end{equation}
+\end{definition}
+
+\paragraph{}
+
+$0$ as a list is an additive identity for $\mathbb{F}^n$
+\begin{equation}
+    x + 0 = x,\; \forall x \in \mathbb{F}^n
+\end{equation}
+
+\paragraph{}
+
+When we think of lists as arrows, we refer to them as \textbf{vectors}.
+
+\begin{remark}
+    Vectors are just aids to our understanding, not substitutes for the actual mathematics that we will develop.
+\end{remark}
+
+\begin{definition}[\textbf{scalar multiplication in $\mathbb{F}^n$}]
+    The product of a number $\lambda$ and a vector in $\mathbb{F}^n$ is computed by multiplying each coordinate of the vector by $\lambda$:
+    \begin{equation}
+        \lambda(x_1, \cdots, x_n) = (\lambda x_1, \cdots, \lambda x_n);
+    \end{equation}
+    here $\lambda \in \mathbb{F}$ and $(x_1,\cdots,x_n) \in \mathbb{F}^n$.
+\end{definition}
+
+As for geometrical meaning of scalar multiples, it represents the transformations that shrink or stretch a vector x by a factor of $\lambda$.
+
+If $\lambda$ is negative and $x$ is a vector in $\mathbb{R}^2$, then $\lambda x$ is the vector that points in the direction opposite to that of $x$ and whose length is $\lvert \lambda \rvert$ times the length of $x$, as shown here.
+
+Before define the formal definition of the vector spaces, we should first explain the definition of addition and scalar multiplication.
+
+\begin{definition}
+    Let $V$ be a set of elements in $\mathbb{F}^n$. An addition on $V$ is a function that assigns an element $u+v\in V$ to each pair of elements $u,v \in V$. A scalar multiplication on a set $V$ is a function that assigns an element $\lambda v \in V$ to each $\lambda \in \mathbb{F}$ and each $v \in V$.
+\end{definition}
+
+\begin{definition}
+    A vector space is a set $V$ along with an addition on V and a scalar multiplication on V such that the following properties hold:
+    \newline
+    \textbf{commutativity}
+    \begin{equation}
+        u + v = v + u \text{ for all } u, v \in V;
+    \end{equation}
+    \textbf{associativity}
+    \begin{equation}
+        (u + v) + w = u + (v + w) \text{ and } (ab)v = a(bv) \text{ for all } u, v, w \in V \text{ and all } a, b \in \mathbb{F};
+    \end{equation}
+    \textbf{additive identity}
+    \begin{equation}
+        \text{there exists an element } 0 \in V \text{ such that } v + 0 = v, \text{ for all } v \in V;
+    \end{equation}
+    \textbf{additive inverse}
+    \begin{equation}
+        \text{for every} v \in V\text{, there exists }w \in V \text{ such that }v + w = 0;
+    \end{equation}
+    \textbf{multiplicative identity}
+    \begin{equation}
+        1v = v \text{ for all } v \in V;
+    \end{equation}
+    \textbf{distributive properties}
+    \begin{equation}
+        a(u + v) = au + av \text{ and } (a+b)v = av + bv \text{ for all } a,b \in \mathbb{F} \text{ and all } u,v \in V.
+    \end{equation}
+\end{definition}
+
+\begin{definition}[$\mathbb{F}^{\infty}$]
+    $\mathbb{F}^{\infty}$ is defined to be the set of all sequences of elements of $\mathbb{F}$:
+    \begin{equation}
+        \mathbb{F}^{\infty} = \{(x_1,x_2,\cdots)\,:\,x_j\in\mathbb{F} \text{ for } j = 1,2,\cdots\}.
+    \end{equation}
+    Addition and scalar multiplication on $\mathbb{F}^{\infty}$ are defined as expected
+\end{definition}
+
+We introduce a general way to produce a vector space.
+
+\begin{definition}[$\mathbb{F}^{S}$]
+    If $S$ is a set
+    \begin{itemize}
+        \item Then $\mathbb{F}^{S}$ denotes the set of functions from $S$ to $\mathbb{F}$.
+        \item For $f,g \in \mathbb{F}^{S}$, the \textbf{sum} $f+g\in \mathbb{F}^{S}$ is the function defined by
+        \begin{equation}
+            (f+g)(x) = f(x) + g(x)
+        \end{equation}
+        for all $x \in S$.
+        \item For $\lambda \in \mathbb{F}$ and $f \in \mathbb{F}^{S}$, and \textbf{product} $\lambda f \in \mathbb{F}^{S}$ is the function defined by
+        \begin{equation}
+            (\lambda f)(x) = \lambda f(x)
+        \end{equation}
+        for all $x \in S$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}[$\mathbb{F}^{S}$ is a vector space]
+    If $S$ is nonempty set
+    \begin{itemize}
+        \item The additive identity of $\mathbb{F}^{S}$ is the function $0: S \to \mathbb{F}$ defined by
+        \begin{equation}
+            0(x) = 0
+        \end{equation}
+        for all $x \in S$.
+        \item For $f \in \mathbb{F}$, the additive inverse of $f$ is the function $-f: S \to \mathbb{F}$ defined by
+        \begin{equation}
+            (-f)(x) = -f(x)
+        \end{equation}
+        for all $x \in S$.
+    \end{itemize}
+\end{example}
+
+\begin{remark}
+    $\mathbb{F}^{n}$ and $\mathbb{F}^{\infty}$ are two special case of $\mathbb{F}^{S}$.
+    \begin{equation}
+        \begin{aligned}
+            \mathbb{F}^{n} &= \mathbb{F}^{1,2,\cdots,n}\\
+            \mathbb{F}^{\infty} &= \mathbb{F}^{1,2,\cdots}
+        \end{aligned}
+    \end{equation}
+\end{remark}
+
+\begin{prop}[\textbf{Unique Additive Identity}]
+    A vector space has a unique additive identity
+\end{prop}
+
+\begin{proof}
+    Suppose by contradiction that $0$ and $0'$ are both additive identities for some vector space $V$. Then
+    \begin{equation}
+        0 = 0 + 0' = 0' + 0 = 0'.
+    \end{equation}
+\end{proof}
+
+\begin{prop}[\textbf{Unique Additive Inverse}]
+    Every element in a vector space has a unique additive inverse
+\end{prop}
+
+\begin{proof}
+    Let V be a vector space. Let $v \in V$. Suppose by contradiction that $w$ and $w'$ are two additive inverse of $v$. Then
+    \begin{equation}
+        w = w + 0 = w + (v + w') = (w + v) + w' = 0 + w' = w'.
+    \end{equation}
+\end{proof}
+
+\begin{prop}[\textbf{The Number 0 times a Vector}]
+    $0v = 0$ for every $v \in V$
+\end{prop}
+
+\begin{proof}
+    Let $x$ be the additive inverse of $0v$. Then for all $v \in V$
+    \begin{equation}
+        \begin{aligned}
+            &0v = (0 + 0)v = 0v + 0v\\
+            \Rightarrow &0v + x = 0v + 0v + x\\
+            \Rightarrow &0 = 0v + (0v + x)\\
+            \Rightarrow &0 = 0v + 0\\
+            \Rightarrow &0 = 0v
+        \end{aligned}
+    \end{equation}
+\end{proof}
+
+\begin{prop}[\textbf{A Number times Vector 0}]
+    $a0 = 0$ for every $a \in \mathbb{F}$
+\end{prop}
+
+\begin{proof}
+    For all $a \in \mathbb{F}$, let $x$ be the additive inverse of $a0$. We have
+    \begin{equation}
+        \begin{aligned}
+            &a0 = a(0 + 0) = a0 + a0\\
+            \Rightarrow &a0 + x = a0 + a0 + x\\
+            \Rightarrow &0 = a0 + (a0 + x)\\
+            \Rightarrow &0 = a0 + 0\\
+            \Rightarrow &0 = a0
+        \end{aligned}
+    \end{equation}
+\end{proof}
+
+\begin{prop}[\textbf{The Number $-1$ times a Vector}]
+    $(-1)v = -v$ for every $v \in V$
+\end{prop}
+
+\begin{proof}
+    For $v \in V$, we have
+    \begin{equation}
+        \begin{aligned}
+            v + (-1)v = 1v + (-1)v = (1+(-1))v = 0v = 0
+        \end{aligned}
+    \end{equation}
+    Hence, $(-1)v$ is the additive inverse of $v$. i.e. $(-1)v = -v$
+\end{proof}
+
+\begin{definition}[\textbf{Subspace}]
+    A subset $U$ of $V$ is called a \textbf{subspace} of $V$ if $U$ is also a vector space (using the same addition and scalar multiplication as on $V$).
+\end{definition}
+
+\begin{prop}
+    A subset $U$ of $V$ is a subspace of $V$ if and only if $U$ satisfies the following three conditions:\\
+    \textbf{additive identity}
+    \begin{equation}
+        0 \in U
+    \end{equation}
+    \textbf{closed under addition}
+    \begin{equation}
+        u,w \in U \text{ implies } u + w \in U
+    \end{equation}
+    \textbf{closed under scalar multiplication}
+    \begin{equation}
+        a \in \mathbb{F} \text{ and } u \in U \text{ implies } au \in U
+    \end{equation}
+\end{prop}
+
+\begin{proof}
+    If $U$ is a subspace of $V$, then $U$ satisfies the three conditions listed above by the definition of the vector space.
+    
+    Conversely, suppose $U$ satisfies the three conditions above, we want to show that $U$ is a vector space. First the closure conditions make sure the addition and scalar multiplication make sense on $U$. The commutativity, associativity, and distributive properties are automatically fulfilled, since $U \subseteq V$ and $V$ is a vector space. The additive identity is $0$. For an arbitrary element $u \in U$, we could show that $-u$ is the additive inverse of the $u$, since $u + (-u) = (1+(-1))u = 0u = 0$. Hence, $U$ is a vector space.
+    \end{proof}
+
+\begin{definition}[\textbf{Sum of Subsets}]
+    Suppose $U_1,\cdots,U_m$ are subsets of $V$. The \textbf{sum} of $U_1,\cdots,U_m$, denoted $U_1+\cdots+U_m$, is the set of all possible sums of elements of $U_1,\cdots,U_m$. More precisely,
+    \begin{equation}
+        U_1+\cdots+U_m = \{u_1+\cdots+u_m:u_1\in U_1,\cdots, u_m\in U_m\}.
+    \end{equation}
+\end{definition}
+
+\begin{prop}[\textbf{Sum of Subspace is the smallest containing Subspace}]
+    Suppose $U_1,\cdots,U_m$ are subspaces of $V$. Then $U_1+\cdots+U_m$ is the smallest subspace of $V$ containing $U_1,\cdots,U_m$.
+\end{prop}
+
+\begin{proof}
+    It is clear that $U_1+\cdots+U_m$ is a subspace of $V$, since $0 \in U_1+\cdots+U_m$, since $0 = 0 + \cdots + 0$ for each $0$ from each $U_1, \cdots, U_m$, and $U_1+\cdots+U_m$ is closed under addition and scalar multiplication because $U_i \in V$ for all $i = 1,\cdots,m$ and $V$ is closed under addition.
+    
+    Clearly, each $U_i$ for $i = 1,\cdots,m$ is contained in $U_1+\cdots+U_m$ by setting corresponding elemens to $0$. Next, it suffices to show that every subspace of $V$ containing $U_1,\cdots,U_m$ contains $U_1+\cdots+U_m$. Indeed, every subspace containing $U_1,\cdots,U_m$ must contain every finite sum of elements in $U_1,\cdots,U_m$.
+\end{proof}
+
+\paragraph{}
+
+Sums of subspaces in the theory of vector spaces are analogous to unions of subsets in set theory. Given two subspaces of a vector space, the smallest subset containing them is their sum. Analogously, given two subset of a set, the smallest subset containing them is their union. similarly, we are going to introduce an analogy of disjoint union in the theory of vector spaces.
+
+\begin{definition}[\textbf{Direct Sums}]
+    Suppose $U_1,\cdots,U_m$ are subspaces of $V$.
+    \begin{itemize}
+        \item The sum $U_1+\cdots U_m$ is called \textbf{direct sum} if each element of $U_1+\cdots+U_m$ can be uniquely written as a sum $u_1+\cdots+u_m$, where each $u_j$ is in $U_j$.
+        \item If $U_1+\cdots+U_m$ is a direct sum, then $U_1\bigoplus\cdots\bigoplus U_m$ denotes $U_1+\cdots+U_m$, with the $\bigoplus$ notation serving as an indication that this is a direct sum.
+    \end{itemize}
+\end{definition}
+
+\newpage
+\section{Abstract Algebra}
+
+I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} and Aluffi's ``Algebra Chapter 0''\cite{aluffi_algebra_2009} for reviewing purpose .
+
+\subsection{Preliminaries}
+
+\subsubsection{Basics}
+
+\begin{definition}[\textbf{Injection}]
+    Let $f: A \to B$, $f$ is injective or is an injection if whenever $a_1 \neq a_2$, then $f(a_1)\neq f(a_2)$.
+\end{definition}
+
+\begin{definition}[\textbf{Surjection}]
+    Let $f: A \to B$, $f$ is surjective or is a surjection if for all $b \in B$ there is some $a \in A$ such that $f(a) = b$, i.e., the image of $f$ is all of $B$. Notice that since a function always maps onto its range, it is necessary to specify the codomain $B$ in order for the question of surjectivity to be meaningful.
+\end{definition}
+
+\begin{definition}[\textbf{Bijection}]
+    Let $f: A \to B$, $f$ is bijective or is a bijection if it is both injective and surjective. If such a bijection exist between $A$ and $B$, we say that $A$ and $B$ are in bijective correspondence.
+\end{definition}
+
+\begin{definition}[\textbf{Left Inverse}]
+    Let $f: A \to B$. $f$ has a left inverse if there is a function $g: B \to A$ such that $g \circ f: A \to A$ is the identity map, i.e., $(g \circ f)(a) = a$ for all $a \in A$. 
+\end{definition}
+
+\begin{definition}[\textbf{Right Inverse}]
+    Let $f: A \to B$. $f$ has a left inverse if there is a function $g: B \to A$ such that $f \circ g: A \to A$ is the identity map, i.e., $(f \circ g)(a) = a$ for all $a \in A$. 
+\end{definition}
+
+\begin{prop}
+    Let $f: A \to B$.
+    \begin{itemize}
+        \item The map $f$ is injective if and only if $f$ has a left inverse
+        \item The map $f$ is surjective if and only if $f$ has a right inverse
+        \item The map $f$ is bijective if and only if there is a function $g: B \to A$ such that $f \circ g$ and $g \circ f$ are both identity maps.
+        \item If $A$ and $B$ are finite sets with the same number of elements, then $f$ is bijective if and only if $f$ is surjective if and only if $f$ is injective.
+    \end{itemize}
+\end{prop}
+
+\begin{proof}
+    Suppose $f$ is injective, and let $C = \im f$. Then, define a function 
+    \begin{equation}
+        \begin{aligned}
+            h: &C \to A\\
+            &c \to f^{-1}(c)
+        \end{aligned}
+    \end{equation}
+    $h$ is well-defined, since $f$ is injective, we know that for all $c \in C$, $f^{-1}(c)$ is unique. Then for all $g: B \to A$ such that $g$ is an extension of $h$ to $B$ could be the left inverse of $g$. Indeed, for all $a \in A$, $(g \circ f)(a) = g(f(a)) = f^{-1}(f(a)) = a$, since $f(a) \in C$. 
+    
+    Next, suppose $f$ has a left inverse $g: B \to A$. Then $(g \circ f)(a) = a$ for all $a \in A$. Suppose by contradiction that $f$ is not injective, then there is $a_1, a_2 \in A$ such that $a_1 \neq a_2$ but $f(a_1) = f(a_2)$. Then $a_1 = (g \circ f)(a_1) = g(f(a_1)) = g(f(a_2)) = (g \circ f)(a_2) = a_2$. This lead to a contradiction to $a_1 \neq a_2$. Hence, $f$ is injective.
+    
+    The similar proofs for the rest of the bullet points.
+\end{proof}
+
+\begin{remark}
+    In the situation of the third bullet point in the previous proposition, the function $g$ is necessarily to be unique, and we shall call it to be the two-sided inverse (or simply \textbf{inverse}) of the function $f$.
+\end{remark}
+
+\begin{definition}[\textbf{Permutation}]
+    A permutation of a set $A$ is simply a bijection from $A$ to $A$.
+\end{definition}
+
+\begin{definition}[\textbf{Restriction}]
+    If $A \subseteq B$ and $f: B \to C$, we denote the \textbf{restriction} of $f$ to $A$ by $f\lvert A$. When the domain we are considering is understood we shall occasionally denote $f \lvert A$ again simply as $f$ even though they are formally different functions (their domains are different).
+\end{definition}
+
+\begin{definition}[\textbf{Extension}]
+    If $A \subseteq B$ and $g: a \to C$, and there exist a function $f: B \to C$ such that $f\lvert A = g$, we shall say $f$ is an extension of $g$ to $B$ (such a map need not to exist nor be unique).
+\end{definition}
+
+\begin{definition}[\textbf{Binary Relation}]
+    A \textbf{binary relation} on a set $A$ is a subset $R$ of $A \times A$ and we write $a \sim b$ if $(a,b) \in R$.
+\end{definition}
+
+\begin{definition}[\textbf{Equivalence Relation}]
+    A relation $\sim$ on $A$ is said to be an \textbf{equivalence relation} if it is reflexive, symmetric and transitive.
+\end{definition}
+
+\begin{definition}[\textbf{Equivalence Class}]
+    If $\sim$ defines an equivalence relation on $A$, then the equivalence class of $a \in A$ is defined to be $\{x \in A \lvert x \sim a\}$. Elements of the equivalence class of $a$ are said to be equivalent to $a$. If $C$ is said to be an equivalence class, then any elements of $C$ are the \textbf{representative} of $C$.
+\end{definition}
+
+\begin{definition}[\textbf{Partition}]
+    A partition of $A$ is any collection $\{A_i \lvert i \in I\}$ of nonempty subsets of $A$ ($I$ some indexing set) such that
+    \begin{itemize}
+        \item $A = \bigcup_{i\in I}A_i$, and
+        \item $A_i \cap A_j = \emptyset$, for all $i,j \in I$ with $i \neq j$, i.e., $A$ is the disjoint union of the sets in the partition.
+    \end{itemize}
+\end{definition}
+
+\begin{prop}
+    Let $A$ be a nonempty set.
+    \begin{itemize}
+        \item If $\sim$ defines an equivalence relation on $A$ then the set of equivalence classes of $\sim$ form a partition of $A$.
+        \item If $\{A_i \lvert i \in I\}$ is a partition of $A$ then there is an equivalence relation on $A$ whose equivalence classes are precisely the sets $A_i, \, i \in I$.
+    \end{itemize}
+\end{prop}
+
+\begin{remark}
+    The proposition above claims that the equivalence classes and the partitions define the same thing.
+\end{remark}
+
+\newpage
+\subsubsection{Properties of the integers}
+
+\begin{prop}
+    Below are some basic properties of the integers $\mathbb{Z}$
+    \begin{itemize}
+        \item (Well Ordering of $\mathbb{Z}$) If $A$ is some nonempty subset of $\mathbb{Z}^{+}$, there is some element $m \in A$ such that $m \leq A$, for all $a \in A$ ($m$ is called a \textbf{minimal element} of $A$).
+        \item If $a,b \in \mathbb{Z}$ with $a \neq 0$, we say $a$ \textbf{divides} $b$ if there is an element $c \in \mathbb{Z}$ such that $b = ac$. In this case we write $a \lvert b$; if $a$ does not divide $b$, we write $a \nmid b$.
+        \item If $a,b \in \mathbb{Z}-\{0\}$, there is a unique positive integer $d$, called the \textbf{greatest common divisor} of $a$ and $b$ (or $\gcd$ of $a$ and $b$)
+        \item If $a,b \in \mathbb{Z}-\{0\}$, there is a unique positive integer $d$, called the \textbf{least common multiple} of $a$ and $b$ (or $\lcm$ of $a$ and $b$)
+        \item $ab = \gcd(a,b)\lcm(a,b)$
+    \end{itemize}
+\end{prop}
+
+\begin{theorem}[\textbf{Division Algorithm}]
+    If $a,b \in \mathbb{Z}-\{0\}$, then there exist unique $q,r \in \mathbb{Z}$ such that
+    \begin{equation}
+        a = qb +r \text{ and } 0 \leq r < \lvert b \rvert,
+    \end{equation}
+    where $q$ is the \textbf{quotient} and $r$ the \textbf{remainder}.
+\end{theorem}
+
+\begin{proof}
+    \textit{Existence}: We could give an algorithm as shown in the Algorithm \ref{alg:divAlg} to prove that there always exist such $q$ and $r$
+    \begin{algorithm}[H]
+        \caption{Division$[a,b,q_0]$}\label{alg:divAlg}
+        \begin{algorithmic}
+            \State Input: two integers $a$ and $b$, with $a \geq b$ and an integer $q_0$ satisfying $bq_0 \leq a$
+            \State Output: the quotient $q$ and the remainder $r$
+            \newline
+            \State $q := q_0$
+            \State $r := a - bq$
+            \While{$r \geq \lvert b \rvert$}
+                \State $q = q+1$
+                \State $r = r-b$
+            \EndWhile
+            \State return $q,\, r$
+        \end{algorithmic}
+    \end{algorithm}
+    Because $q$ and $r$ was computed in pairs by the algorithm and $r$ is descending by each iteration of the algorithm, we know the while loop indeed terminates. Also, since the condition of the while loop state that $r \leq \lvert b \rvert$, we know that when the while loop terminates, $r < \lvert b \rvert$.
+    \newline
+    \textit{Uniqueness}: Suppose by contradiction that there exist $p$ and $s$ with $p \neq q$ and $s \neq r$ such that $a = pb + s$ and $0 \leq s < \lvert b \rvert$. Then $qb + r = pb + s$, which leads $r - s = (p-q)b$. This implies $\lvert r - s \rvert = \lvert (p - q)b \rvert \leq \lvert b \rvert$. However, since $0 \leq r,s < b$, $\lvert r - s \rvert \leq b$ would lead to contradiction. Hence, the $q,r$ given by the Algorithm \ref{alg:divAlg} is unique.
+\end{proof}
+
+\begin{theorem}[Euclidean Algorithm]
+    The \textbf{Euclidean Algorithm} \ref{alg:eucAlg} is an important procedure which produces the $\gcd$ of two integers $a$ and $b$ by iterating the \textbf{Division Algorithm}
+    \begin{algorithm}[H]
+        \caption{Euclidean$[a,b]$}\label{alg:eucAlg}
+        \begin{algorithmic}
+            \State Input: two integers $a$ and $b$ with $a \geq b$
+            \State output: the greatest common divisor of $a$ and $b$, $g = \gcd(a,b)$
+            \newline
+            \State $(q,r0) := \Division[a,b,q_0]$ where $q_0$ is an integer satisfying $bq_0 \leq a$
+            \State $r := r0$
+            \While{$r \neq 0$}
+                \State $r = r0$
+                \State $(q,r0) = \Division[b,r,h]$ where $h$ is an integer satisfying $bh \leq a$, and $h$ should be updated for each iteration
+            \EndWhile
+            \State return $r0$
+        \end{algorithmic}
+    \end{algorithm}
+\end{theorem}
+
+\newpage
+\subsection{Group Theory}
 
 
 
 %%% End document
+
+\newpage
+\printbibliography
+
 \end{document}
