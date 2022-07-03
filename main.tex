@@ -170,7 +170,7 @@ sorting=ynt
 
 \paragraph{}
 
-I consulted Sheldon Axler's ``Linear Algebra Done Right'' for reviewing purpose \cite{axler_linear_2015}.
+I consulted Sheldon Axler's ``Linear Algebra Done Right'' for review purposes \cite{axler_linear_2015}.
 
 \subsubsection{Vector Spaces}
 
@@ -179,7 +179,7 @@ I consulted Sheldon Axler's ``Linear Algebra Done Right'' for reviewing purpose 
 $\mathbb{F}$ is a generalization of $\mathbb{R}$ and $\mathbb{C}$, since they are both fields.
 
 \begin{definition}[\textbf{list, length}]
-    Suppose n is a nonnegative integer. A \textbf{list} of \textbf{length} $n$ is an orderd collection of $n$ elements. A list of length $n$ looks like this:
+    Suppose that n is a non-negative integer. A \textbf{list} of \textbf{length} $n$ is an ordered collection of $n$ elements. A list of lengths $n$ looks like this:
     \begin{equation}
         (x_1, \cdots, x_n).
     \end{equation}
@@ -188,19 +188,19 @@ $\mathbb{F}$ is a generalization of $\mathbb{R}$ and $\mathbb{C}$, since they ar
 
 \paragraph{}
 
-lists are always finite. Lists differ from sets in two ways: in lists, order matters and repetitions have meaning; in set, order and repetitions are irrelevant.
+lists are always finite. Lists differ from sets in two ways: in lists, order matters and repetitions have meaning; in set, order, and repetitions are irrelevant.
 
 \begin{definition}[$\mathbb{F}^n$]
-    $\mathbb{F}^n$ is the set of all lists of length $n$ of elements of $\mathbb{F}$:
+    $\mathbb{F}^n$ is the set of all the length lists $n$ of elements of $\mathbb{F}$:
     \begin{equation}
         \mathbb{F}^n = \{(x_1,\cdots,x_n):x_j\in \mathbb{F} \text{ for } j = 1, \cdots, n\}.
     \end{equation}
-    For $(x_1, \cdots, x_n) \in \mathbb{F}^n$ and $j \in \{1, \cdots, n\}$, we say that $x_j$ is the $j^{\th}$ \textbf{coordinate} of $(x_1, \cdots, x_n)$.
+    For $(x_1, \cdots, x_n) \in \mathbb{F}^n$ and $j \in \{1, \cdots, n\}$, we say that $x_j$ is $j^{\th}$ \textbf{coordinate} of $(x_1, \cdots, x_n)$.
 \end{definition}
 
 \paragraph{}
 
-Additions in $\mathbb{F}^n$ is defined as element-wise additions, and the commutativity of addition in $\mathbb{F}^n$ is the same as in $\mathbb{F}$.
+The additions in $\mathbb{F}^n$ are defined as element-wise additions, and the commutativity of the addition in $\mathbb{F}^n$ is the same as in $\mathbb{F}$.
 
 \begin{definition}[$0$]
     Let $0$ denote the list of length $n$ whose coordinates are all $0$:
@@ -225,21 +225,21 @@ When we think of lists as arrows, we refer to them as \textbf{vectors}.
 \end{remark}
 
 \begin{definition}[\textbf{scalar multiplication in $\mathbb{F}^n$}]
-    The product of a number $\lambda$ and a vector in $\mathbb{F}^n$ is computed by multiplying each coordinate of the vector by $\lambda$:
+    The product of a number $\lambda$ and a vector in $\mathbb{F}^n$ is computed by multiplying each vector coordinate by $\lambda$:
     \begin{equation}
         \lambda(x_1, \cdots, x_n) = (\lambda x_1, \cdots, \lambda x_n);
     \end{equation}
-    here $\lambda \in \mathbb{F}$ and $(x_1,\cdots,x_n) \in \mathbb{F}^n$.
+    Here $\lambda \in \mathbb{F}$ and $(x_1,\cdots,x_n) \in \mathbb{F}^n$.
 \end{definition}
 
-As for geometrical meaning of scalar multiples, it represents the transformations that shrink or stretch a vector x by a factor of $\lambda$.
+In terms of the geometrical meaning of scalar multiples, it represents the transformations that shrink or stretch a vector x by a factor of $\lambda$.
 
 If $\lambda$ is negative and $x$ is a vector in $\mathbb{R}^2$, then $\lambda x$ is the vector that points in the direction opposite to that of $x$ and whose length is $\lvert \lambda \rvert$ times the length of $x$, as shown here.
 
-Before define the formal definition of the vector spaces, we should first explain the definition of addition and scalar multiplication.
+Before defining the formal definition of the vector spaces, we should first explain the definition of addition and scalar multiplication.
 
 \begin{definition}
-    Let $V$ be a set of elements in $\mathbb{F}^n$. An addition on $V$ is a function that assigns an element $u+v\in V$ to each pair of elements $u,v \in V$. A scalar multiplication on a set $V$ is a function that assigns an element $\lambda v \in V$ to each $\lambda \in \mathbb{F}$ and each $v \in V$.
+    Let $V$ be a set of elements in $\mathbb{F}^n$. An addition in $V$ is a function that assigns an element $u+v\in V$ to each pair of elements $u,v \in V$. A scalar multiplication in a set $V$ is a function that assigns an element $\lambda v \in V$ to each $\lambda \in \mathbb{F}$ and each $v \in V$.
 \end{definition}
 
 \begin{definition}
@@ -272,20 +272,20 @@ Before define the formal definition of the vector spaces, we should first explai
 \end{definition}
 
 \begin{definition}[$\mathbb{F}^{\infty}$]
-    $\mathbb{F}^{\infty}$ is defined to be the set of all sequences of elements of $\mathbb{F}$:
+    $\mathbb{F}^{\infty}$ is defined as the set of all sequences of elements of $\mathbb{F}$:
     \begin{equation}
         \mathbb{F}^{\infty} = \{(x_1,x_2,\cdots)\,:\,x_j\in\mathbb{F} \text{ for } j = 1,2,\cdots\}.
     \end{equation}
-    Addition and scalar multiplication on $\mathbb{F}^{\infty}$ are defined as expected
+    The addition and scalar multiplication in $\mathbb{F}^{\infty}$ are defined as expected
 \end{definition}
 
 We introduce a general way to produce a vector space.
 
 \begin{definition}[$\mathbb{F}^{S}$]
-    If $S$ is a set
+    If $S$ is a set,
     \begin{itemize}
         \item Then $\mathbb{F}^{S}$ denotes the set of functions from $S$ to $\mathbb{F}$.
-        \item For $f,g \in \mathbb{F}^{S}$, the \textbf{sum} $f+g\in \mathbb{F}^{S}$ is the function defined by
+        \item For $f,g \in \mathbb{F}^{S}$, \textbf{sum} $f+g\in \mathbb{F}^{S}$ is the function defined by
         \begin{equation}
             (f+g)(x) = f(x) + g(x)
         \end{equation}
@@ -299,7 +299,7 @@ We introduce a general way to produce a vector space.
 \end{definition}
 
 \begin{example}[$\mathbb{F}^{S}$ is a vector space]
-    If $S$ is nonempty set
+    If $S$ is the non-empty set
     \begin{itemize}
         \item The additive identity of $\mathbb{F}^{S}$ is the function $0: S \to \mathbb{F}$ defined by
         \begin{equation}
@@ -315,7 +315,7 @@ We introduce a general way to produce a vector space.
 \end{example}
 
 \begin{remark}
-    $\mathbb{F}^{n}$ and $\mathbb{F}^{\infty}$ are two special case of $\mathbb{F}^{S}$.
+    $\mathbb{F}^{n}$ and $\mathbb{F}^{\infty}$ are two special cases of $\mathbb{F}^{S}$.
     \begin{equation}
         \begin{aligned}
             \mathbb{F}^{n} &= \mathbb{F}^{1,2,\cdots,n}\\
@@ -325,7 +325,7 @@ We introduce a general way to produce a vector space.
 \end{remark}
 
 \begin{prop}[\textbf{Unique Additive Identity}]
-    A vector space has a unique additive identity
+    A vector space has a unique additive identity.
 \end{prop}
 
 \begin{proof}
@@ -340,7 +340,7 @@ We introduce a general way to produce a vector space.
 \end{prop}
 
 \begin{proof}
-    Let V be a vector space. Let $v \in V$. Suppose by contradiction that $w$ and $w'$ are two additive inverse of $v$. Then
+    Let V be a vector space. Let $v \in V$. Suppose by contradiction that $w$ and $w'$ are two additive inverses of $v$. Then the
     \begin{equation}
         w = w + 0 = w + (v + w') = (w + v) + w' = 0 + w' = w'.
     \end{equation}
@@ -512,7 +512,7 @@ I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} a
 \end{definition}
 
 \begin{definition}[\textbf{Restriction}]
-    If $A \subseteq B$ and $f: B \to C$, we denote the \textbf{restriction} of $f$ to $A$ by $f\lvert A$. When the domain we are considering is understood we shall occasionally denote $f \lvert A$ again simply as $f$ even though they are formally different functions (their domains are different).
+    If $A \subseteq B$ and $f: B \to C$, we denote the \textbf{restriction} of $f$ to $A$ by $f\lvert A$. When the domain we are considering is understood, we shall occasionally denote $f \lvert A$ again simply as $f$ even though they are formally different functions (their domains are different).
 \end{definition}
 
 \begin{definition}[\textbf{Extension}]
@@ -524,11 +524,11 @@ I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} a
 \end{definition}
 
 \begin{definition}[\textbf{Equivalence Relation}]
-    A relation $\sim$ on $A$ is said to be an \textbf{equivalence relation} if it is reflexive, symmetric and transitive.
+    A relation $\sim$ on $A$ is said to be \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
 \end{definition}
 
 \begin{definition}[\textbf{Equivalence Class}]
-    If $\sim$ defines an equivalence relation on $A$, then the equivalence class of $a \in A$ is defined to be $\{x \in A \lvert x \sim a\}$. Elements of the equivalence class of $a$ are said to be equivalent to $a$. If $C$ is said to be an equivalence class, then any elements of $C$ are the \textbf{representative} of $C$.
+    If $\sim$ defines an equivalence relation on $A$, then the equivalence class of $a \in A$ is defined to be $\{x \in A \lvert x \sim a\}$. Elements of the equivalence class of $a$ are said to be equivalent to $a$. If $C$ is said to be an equivalence class, then any elements of $C$ are \textbf{representative} of $C$.
 \end{definition}
 
 \begin{definition}[\textbf{Partition}]
@@ -540,10 +540,10 @@ I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} a
 \end{definition}
 
 \begin{prop}
-    Let $A$ be a nonempty set.
+    Let $A$ be a non-empty set.
     \begin{itemize}
-        \item If $\sim$ defines an equivalence relation on $A$ then the set of equivalence classes of $\sim$ form a partition of $A$.
-        \item If $\{A_i \lvert i \in I\}$ is a partition of $A$ then there is an equivalence relation on $A$ whose equivalence classes are precisely the sets $A_i, \, i \in I$.
+        \item If $\sim$ defines an equivalence relation on $A$, then the set of equivalence classes of $\sim$ forms a partition of $A$.
+        \item If $\{A_i \lvert i \in I\}$ is a partition of $A$, then there is an equivalence relation on $A$ whose equivalence classes are precisely the sets $A_i, \, i \in I$.
     \end{itemize}
 \end{prop}
 
@@ -596,7 +596,7 @@ I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} a
 \end{proof}
 
 \begin{theorem}[Euclidean Algorithm]
-    The \textbf{Euclidean Algorithm} \ref{alg:eucAlg} is an important procedure which produces the $\gcd$ of two integers $a$ and $b$ by iterating the \textbf{Division Algorithm}
+    The \textbf{Euclidean Algorithm} \ref{alg:eucAlg} is an important procedure which produces the $\gcd$ of two integers $a$ and $b$ by iterating \textbf{Division Algorithm}
     \begin{algorithm}[H]
         \caption{Euclidean$[a,b]$}\label{alg:eucAlg}
         \begin{algorithmic}
@@ -613,6 +613,112 @@ I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} a
         \end{algorithmic}
     \end{algorithm}
 \end{theorem}
+
+\begin{proof}
+    The Algorithm \ref{alg:eucAlg} terminates since $r_0$ at each time of iteration creates a decreasing sequence of positive integers. Because the sequence could not continue indefinitely, $r$ would finally be $0$ at a certain time of iteration. Hence $r_0$ exits. It is clear that the output of the algorithm divides both $a$ and $b$ by collecting common terms. Then, suppose by contradiction that there is a common divisor of $a$ and $b$, $s$ that is larger than the output of the algorithm $r$. Then, $s$ divides each $r_0$ produced by the iterations of the algorithm. In particular, $s \mid r$, which implies $s \leq r$. This leads to a contradiction to $s > r$. Hence, $r$ is $\gcd(a,b)$.
+\end{proof}
+
+\begin{theorem}
+    $\gcd(a,b)$ is a $\mathbb{Z}$-linear combination of $a$ and $b$.
+\end{theorem}
+
+\begin{proof}
+    Recursively writing the element $r_n$ in Algorithm \ref{alg:eucAlg} in terms of the previous remainders (namely, use equation ($n$) to solve for $r_n = r_{n-2} - q_nr_{n-1}$ in terms of the remainders $r_{n-1}$ and $r_{n-2}$, then use equation $(n-1)$ to write $r_n$ in terms of the remainders $r_{n-2}$ and $r_{n-3}$, etc., eventually writing $r_n$ in terms of $a$ and $b$) 
+\end{proof}
+
+\begin{example}
+    Suppose $a = 57970$ and $b = 10353$. We could find the greatest common divisor via Algorithm \ref{alg:eucAlg}.
+        \begin{align}
+            57970 &= (5)10353 + 6205 \label{eqn:2.3}\\
+            10353 &= (1)6205 + 4148 \label{eqn:2.4}\\
+            6205 &= (1)4148 + 2057 \label{eqn:2.5}\\
+            4148 &= (2)2057 + 34 \label{eqn:2.6}\\
+            2057 &= (60)34 + 17 \label{eqn:2.7}\\
+            34 &= (2)17
+        \end{align}
+    Hence, $\gcd(a,b) = 17$
+    By Equation \ref{eqn:2.7}, we could write $17 = 2057 + (-60)34$. By Equation \ref{eqn:2.6}, we could write $34 = 4148 + (-2)2057$, and substituting this into the previous expression we have $17 = (-60)4148 + (121)2057$. Similarly, we get $2057 = 6205 + (-1)4148$ from Equation \ref{eqn:2.5}, and therefore, we have $17 = (121)6205 + (-181)4148$. Then, we have $17 = (-181)10353 + (302)6205$, and finally, we have $17 = (302)57970 + (-1691)10353 = 302a + (-1691)b$
+\end{example}
+
+\begin{remark}
+    The $\mathbb{Z}$-combination of $a$ and $b$ for $\gcd(a,b)$ is not unique.
+\end{remark}
+
+\begin{definition}[\textbf{Prime and Composite}]
+    An element $p$ of $\mathbb{Z}^{+}$ is called a \textbf{prime} if $p > 1$ and the only positive divisor of $p$ are $1$ and $p$ (initially, the word prime will refer only to positive integers). and integer $n > 1$ is said to be \textbf{composite} if it is not prime.
+\end{definition}
+
+\begin{prop}
+    If $p$ is a prime number and $p\lvert ab$ for some $a,b\in\mathbb{Z}$, then either $p \lvert a$ or $p \lvert b$.
+\end{prop}
+
+\begin{proof}
+    Suppose by contradiction that $p \nmid a$ and $p \nmid b$. Then, $a = np + m$ and $b = sp + t$ for some $n,m,s,t \in \mathbb{Z}$ and $m,t < p$. Hence $ab = (np+m)(sp+t) = nsp + (nt+ms)p + mt$. We know $p \nmid mt$, since otherwise some divisor of $m$ or $t$ would be a divisor of $p$ other than $1$ and $p$. This contradicts the hypothesis that $p$ is prime. Hence, $p \nmid ab$. This is a contradiction. Therefore, either $p \lvert a$ or $p \lvert b$.
+\end{proof}
+
+\begin{theorem}[\textbf{Fundamental Theorem of Arithmetic}]
+    If $n \in \mathbb{Z}, \; n > 1$, then $n$ can be factored uniquely into the product of primes, i.e., there are distinct primes $p_1,p_2,\cdots,p_s$ and positive integers $\alpha_1,\alpha_2,\cdots,\alpha_s$ such that
+    \begin{equation}
+        n = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}.
+    \end{equation}
+    This factorization is unique by following a certain order to arrange the factors $p_1,p_2,\cdots,p_s$.
+\end{theorem}
+
+\begin{prop}
+    Suppsoe the positive integers $a$ and $b$ are expressed as products of prime powers:
+    \begin{equation}
+        a = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}, \;\; b = p_1^{\beta_1}p_2^{\beta_2}\cdots p_s^{\beta_s}
+    \end{equation}
+    where $p_1, p_2,\cdots, p_s$ are distinct and the exponents are $\geq 0$. Then, the greatest common divisor of $a$ and $b$ is
+    \begin{equation}
+        \gcd(a,b) = p_1^{\min(\alpha_1,\beta_1)}p_2^{\min(\alpha_2,\beta_2)}\cdots p_s^{\min(\alpha_s,\beta_s)},
+    \end{equation}
+    and
+    \begin{equation}
+        \gcd(a,b) = p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_s^{\max(\alpha_s,\beta_s)}
+    \end{equation}
+\end{prop}
+
+\begin{definition}[\textbf{Euler $\phi$-function}]
+    The \textbf{Euler $\phi$-function} is defined as follows: for $n \in \mathbb{Z}^{+}$ let $\phi(n)$ be the number of positive integer $a \leq n$ with $a$ relatively prime to $n$, i.e., $\gcd(a,n) = 1$.
+\end{definition}
+
+\begin{prop}
+    For primes $p$, $\phi(p) = p - 1$
+\end{prop}
+
+\begin{proof}
+    Since for all primes $p$ and $n \in \mathbb{Z}^{+}, n \leq p$, only when $n = p$, $\gcd(n,p) \neq 1$. Hence, $\phi(p) = p-1$.
+\end{proof}
+
+\begin{prop}
+    For primes $p$, and for all $a \geq 1$ we have the formula
+    \begin{equation}
+        \phi(p^a) = p^a - p^{a-1} = p^{a-1}(p-1)
+    \end{equation}
+\end{prop}
+
+\begin{proof}
+    Since for any $p^a$ the integers $n \in \mathbb{Z}^{+}, n \leq p$ such that $\gcd(n,p) = 1$ are those $p \nmid n$. Hence, there are $p-1$ kind of remainder when dividing such $n$ by $p$. For any single remainder, there are $\tfrac{p^a}{p} = p^{a-1}$ many integers less than $p$. Hence, there are $p^{a-1}(p-1)$ many $n$. Therefore, $\phi(p^a) = p^{a-1}(p-1)$.
+\end{proof}
+
+\begin{prop}
+    The function $\phi$ is multiplicative in the sense that
+    \begin{equation}
+        \phi(ab) = \phi(a)\phi(b) \quad \text{if } \gcd(a,b) = 1,
+    \end{equation}
+    note that it is important here that $a$ and $b$ be relatively prime.
+\end{prop}
+
+\begin{lemma}
+    The general formula for the values of $\phi$: if $n = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_s^{\alpha_s}$, then 
+    \begin{equation}
+        \begin{aligned}
+            \phi(n) &= \phi(p_1^{\alpha_1})\phi(p_2^{\alpha_2})\cdots \phi(p_s^{\alpha_s})\\
+            &= p_1^{\alpha_1-1}(p_1-1)p_2^{\alpha_2-1}(p_2-1)\cdots p_s^{\alpha_s-1}(p_s-1)
+        \end{aligned}
+    \end{equation}
+\end{lemma}
 
 \newpage
 \subsection{Group Theory}
