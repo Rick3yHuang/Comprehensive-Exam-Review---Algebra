@@ -102,10 +102,10 @@ sorting=ynt
 \newcommand{\grevlex}{\ensuremath{\operatorname{grevlex}}}
 \newcommand{\id}{\ensuremath{\operatorname{id}}}
 \newcommand{\multideg}{\ensuremath{\operatorname{multideg}}}
-\newcommand{\onto}{\ensuremath{\twoheadrightarrow}}
-\newcommand{\into}{\ensuremath{\hookrightarrow}}
 \newcommand{\Division}{\ensuremath{\operatorname{Division}}}
 \newcommand{\Euclidean}{\ensuremath{\operatorname{Euclidean}}}
+\newcommand{\onto}{\ensuremath{\twoheadrightarrow}}
+\newcommand{\into}{\ensuremath{\hookrightarrow}}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
@@ -721,9 +721,109 @@ I consulted Dummit and Foote's ``Abstract Algebra'' \cite{foote_abstract_2003} a
 \end{lemma}
 
 \newpage
+\subsubsection{$\mathbb{Z}/n\mathbb{Z}$: The Integers Modulo $n$}
+
+\begin{definition}[\textbf{$\mathbb{Z}/n\mathbb{Z}$}]
+    Let $n$ be a fixed integer. Define a relation on $\mathbb{Z}$ by
+    \begin{center}
+        $a \sim b$ if and only if $n\lvert (b-a)$.
+    \end{center}
+    This relation is clearly an equivalence relation. There are precisely $n$ distinct equivalence classes mod $n$, namely
+    \begin{center}
+        $\Bar{0},\,\Bar{1},\,\Bar{2},\,\cdots,\,\overline{n-1}$,
+    \end{center}
+    determined by the possible remainders after division by $n$ and these residue classes partition the integers $\mathbb{Z}$. The set of equivalence classes under this equivalence relation will be denoted by \textbf{$\mathbb{Z}/n\mathbb{Z}$} and called the integers modulo $n$.
+    
+    We define the modular arithmetic as follows: for $\Bar{a},\,\Bar{b}\in\mathbb{Z}/n\mathbb{Z}$, define their sum and product by
+    \begin{center}
+        $\Bar{a}+\Bar{b} = \overline{a+b}\quad$ and $\quad\Bar{a}\cdot\Bar{b} = \overline{ab}$
+    \end{center}
+\end{definition}
+
+\begin{theorem}
+    The operations of addition and multiplication on $\mathbb{Z}/n\mathbb{Z}$ defined above are both well defined, that is, they do not depend on the choices of representatives for the classes involved. More precisely, if $a_1,a_2 \in \mathbb{Z}$ and $b_1,b_2\in \mathbb{Z}$ with $\overline{a_1} = \overline{b_1}$ and $\overline{a_2} = \overline{b_2}$, then $\overline{a_1+a_2} = \overline{b_1+b_2}$ and $\overline{a_1a_2} = \overline{b_1b_2}$, i.e., if 
+    \begin{center}
+        $a_1 \equiv b_1\mod n\quad$ and $\quad a_2 \equiv b_2 \mod n$
+    \end{center}
+    then
+    \begin{center}
+        $a_1+a_2 \equiv b_1+b_2 \mod n\quad$ and $\quad a_1a_2 \equiv b_1b_2 \mod n$.
+    \end{center}
+\end{theorem}
+
+\begin{proof}
+    See page $10$ of the book Abstract Algebra by Dummit and Foote \cite{foote_abstract_2003}.
+\end{proof}
+
+\paragraph{}
+
+An important subset of $\mathbb{Z}/n\mathbb{Z}$ consists of the collection of residue classes which have a multiplicative inverse in $\mathbb{Z}/n\mathbb{Z}$: 
+\begin{center}
+    $(\mathbb{Z}/n\mathbb{Z})^{\times} = \{\overline{a} \in \mathbb{Z}/n\mathbb{Z} \,\lvert\, \text{there exits } \overline{c} \in \mathbb{Z}/n\mathbb{Z} \text{ with } \overline{a}\cdot \overline{c} = \overline{1}\}$.
+\end{center}
+
+\begin{prop}
+    $(\mathbb{Z}/n\mathbb{Z})^{\times} = \{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\}$.
+\end{prop}
+
+\begin{proof}
+    First, it is easy to see that if any representative of $\overline{a}$ is relatively prime to $n$ then all representatives are relatively prime to $n$ so that the set on the right in the proposition is well defined.
+    
+    Then, suppose $\overline{a}\in \{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\}$, we want to show $\overline{a} \in (\mathbb{Z}/n\mathbb{Z})^{\times}$. This is sufficient to show $\{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\} \subseteq (\mathbb{Z}/n\mathbb{Z})^{\times}$. By the Euclidean algorithm, we know that if $\gcd(a,n) = 1$, then there is $s,t \in \mathbb{Z}$ such that $as + nt = 1$, which means $as = 1 - nt$. This implies $\overline{as}=\overline{a}\cdot \overline{s} = \overline{1-nt} = \overline{1}$. Therefore, $\overline{s}$ is the inverse of $\overline{a}$. Hence, $\{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\} \subseteq (\mathbb{Z}/n\mathbb{Z})^{\times}$.
+    
+    Finally, we need to prove the converse $(\mathbb{Z}/n\mathbb{Z})^{\times} \subseteq \{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\}$. Suppose $\overline{a} \in (\mathbb{Z}/n\mathbb{Z})^{\times}$. Then, there exist $\overline{c} \in \mathbb{Z}/n\mathbb{Z}$ such that $\overline{a}\cdot\overline{c} = \overline{1}$. Suppose by contradiction that $\gcd(a,n) = b \neq 1$. Then $\gcd(ac,n) \leq b$. Hence $\overline{a} \cdot \overline{c} = \overline{ac} \neq \overline{1}$. This is a contradiction. Hence, $(\mathbb{Z}/n\mathbb{Z})^{\times} \subseteq \{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\}$
+    
+    Thus, $(\mathbb{Z}/n\mathbb{Z})^{\times} = \{\overline{a}\in\mathbb{Z}/n\mathbb{Z} \,\lvert\,\gcd(a,n) = 1\}$
+\end{proof}
+
+\newpage
 \subsection{Group Theory}
 
+\subsubsection{Introduction to Groups}
 
+\begin{definition}[\textbf{Group}]
+    A group is an ordered pair $(G,\star)$ where $G$ is a set and $\star$ is a binary operation on $G$ satisfying the following axioms:
+    \begin{itemize}
+        \item $\star$ is associative,
+        \item there exist an element $e \in G$, called an \textbf{identity} of $G$, such that for all $a \in G$ we have $a \star e = e \star a = a$,
+        \item for each $a \in G$ there is an element $a^{-1}$ of $G$, called an \textbf{inverse} of $a$, such that $a \star a^{-1} = a^{-1} \star a = e$.
+    \end{itemize}
+    The group $(G,\star)$ is called \textbf{abelian} (or commutative) if $a \star b = b \star a$ for all $a,b \in G$.
+\end{definition}
+
+\begin{remark}
+    We say $G$ is \textbf{finite group} if, in addition, $G$ is a finite set.
+\end{remark}
+
+\begin{prop}
+    If $G$ is a group under the operation $\star$, then, the identity of $G$ and the inverse of any element is unique. 
+\end{prop}
+
+\begin{proof}
+    Suppose there are two distinct identity $f$ and $g$ of $G$. Hence, $f\star g = g$ since $f$ is the identity. Also, $f\star g = f$ due that $g$ is the identity. Therefore $f = g$. This is a contradiction. Therefore, we know that the identity of $G$ is unique. 
+    
+    Let $g \in G$ be an arbitrary element. Suppose by contradiction that there are two distinct elements $h$ and $f$ in $G$ such that they are both the inverses of $g$. Hence, $g \star h = e = g \star f$. Then, $h = h \star e = h \star (g \star f) = (h \star g) \star f = e \star f = f$. This leads to a contradiction. Hence, the inverse of any element is unique.
+\end{proof}
+
+\begin{prop}
+    The left and right cancellation laws hold in $G$.
+\end{prop}
+
+\begin{proof}
+    This can be easily proved using the left and right multiplication of the inverses.
+\end{proof}
+
+\begin{definition}[Order]
+    For $G$ a group and $x \in G$ define the order of $x$ to be the smallest positive integer $n$ such that $x^n = 1$, and denote that this integer by $\lvert x \rvert$. In this case $x$ is said to be of order $n$. If no positive power of $x$ is the identity, the order of $x$ is defined to be infinity and $x$ is said to be of infinite order.
+\end{definition}
+
+\begin{example}
+    In the multiplicative group $\mathbb{R} - \{0\}$ or $\mathbb{Q} - \{0\}$ the element $-1$ has order $2$ and all other nonidentity elements have infinite order.
+\end{example}
+
+\begin{definition}
+    Let $G = \{g_1, g_2, \cdots, g_n\}$ be a finite group with $g_1 = 1$. The multiplication table or group table of $G$ is the $n \times n$ matrix whose $i,j$ entry is the group element $g_ig_j$.
+\end{definition}
 
 %%% End document
 
