@@ -104,6 +104,7 @@ sorting=ynt
 \newcommand{\multideg}{\ensuremath{\operatorname{multideg}}}
 \newcommand{\Division}{\ensuremath{\operatorname{Division}}}
 \newcommand{\Euclidean}{\ensuremath{\operatorname{Euclidean}}}
+\newcommand{\GL}{\ensuremath{\operatorname{GL}}}
 \newcommand{\onto}{\ensuremath{\twoheadrightarrow}}
 \newcommand{\into}{\ensuremath{\hookrightarrow}}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
@@ -115,6 +116,7 @@ sorting=ynt
 \renewcommand{\max}{\ensuremath{\operatorname{max}}}
 \renewcommand{\to}{\ensuremath{\rightarrow}}
 \renewcommand{\th}{\ensuremath{\operatorname{th}}}
+\renewcommand{\det}{\ensuremath{\operatorname{det}}}
 
 %%% Styles
 \theoremstyle{definition}
@@ -899,11 +901,110 @@ Since $s \neq r^i$ for any $i$, then $D_{2n} = \langle r, s \rangle$
 
 \paragraph{Symmetric Groups}
 
+\begin{definition}[\textbf{Symmetric Group $S_n$}]
+    Let $\Sigma$ be any nonempty set and let $S_{\Sigma}$ be the set of all bijection from $\Sigma$ to itself. The set $S_{\Sigma}$ is a group under function composition: $\circ$.
+\end{definition}
 
+\paragraph{}
+
+The symmetric group $S_n$ is a group of order $n!$. A \textbf{cycle} is a string of integers which representats the element of $S_n$ which cyclically permutes these integers. $S_n$ is a non-abelian group for all $n \geq 3$, but the disjoint cycles in the cycle decomposition of the permutations commute.
+
+\paragraph{Matrix Groups}
+
+\begin{definition}[\textbf{Matrix Groups}]
+    For each $n \in \mathbb{Z}^{+}$ let $\GL_n(F)$ be the set of all $n\times n$ matrices whose entries come from $F$ and whose determinant is nonzero, i.e.,
+    \begin{equation}
+        {\GL}_n(F) = \{A \,\lvert\,A \text{ is an } n \times n \text{ matrix with entries from } F \text{ and } \det(A) \neq 0\}
+    \end{equation}
+    This is called the \textbf{general linear group of degree $n$.}
+\end{definition}
+
+\paragraph{}
+
+The following results will be proved later but recorded now for convenience:
+
+\begin{prop}
+    (1) if $F$ is a field and $\lvert F \rvert < \infty$, then $\lvert F \rvert = p^m$ for some prime $p$ and integer $m$.
+    
+    (2) if $\lvert F \rvert = q < \infty$, then $\lvert \GL_n(F)\rvert = (q^n - 1)(q^ - q)(q^n-q^2)\cdots(q^n-q^{n-1})$.
+\end{prop}
+
+\paragraph{The Quaternion Group}
+
+\begin{definition}
+    The \textbf{quaternion} group, $Q_8$, is defined by
+    \begin{equation}
+        Q_8 = \{1,-1,i,-i,j,-j,k,-k\}
+    \end{equation}
+    with product $\cdot$ ccomputed as follows:
+    \begin{equation}
+        \begin{aligned}
+            1 \cdot a &= a \cdot 1 = a, \text{ for all } a \in Q_8\\
+            (-1)\cdot (-1) = 1,\,& (-1)\cdot a = a \cdot (-1) = -a, \text{ for all } a \in Q_8\\
+            & i \cdot i = j \cdot j = k \cdot k =-1\\
+            & i \cdot j = k, \quad j \cdot i = -k\\
+            & j \cdot k = i, \quad k \cdot j = -i\\
+            & k \cdot i = j, \quad i \cdot k = -j.
+        \end{aligned}  
+    \end{equation}
+\end{definition}
+
+\paragraph{}
+
+$Q_8$ is a non-abelian group of order $8$.
+
+\paragraph{Homomorphisms and Isomorphisms}
+
+\begin{definition}[\textbf{Homomorphism}]
+    Let $(G,\star)$ and $(H,\diamond)$ be groups. A map $\varphi: G \to H$ such that
+    \begin{equation}
+        \varphi(x \star y) = \varphi(x) \diamond \varphi(y), \text{ for all } x,y \in G
+    \end{equation}
+    is called a \textbf{homomorphism}.
+\end{definition}
+
+\begin{definition}[\textbf{Isomorphism}]
+    The map $\varphi: G \to H$ is called an \textbf{isomorphism} and $G$ and $H$ are said to be isomorphic or of the same isomorphism type, written $G \cong H$, if
+    \begin{itemize}
+        \item $\varphi$ is a homomorphism (i.e., $\varphi(xy) = \varphi(x)\varphi(y)$), and
+        \item $\varphi$ is a bijection.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Intuitively $G$ and $H$ are the same group except that the elements and the operations may be written differently in $G$ and $H$.
+    
+    One of the central problem in mathematics is to determine what properties of a structure specify its isomorphic type. It is to prove that if $G$ is an object with some structure and $G$ has property $\mathcal{P}$, then any other similarly structured object $X$ with property $\mathcal{P}$ is isomorphic to $G$. Theorems of this type are referred to as \textbf{classification theorems}.
+    
+    For example, we shall prove that
+    
+    \begin{center}
+        any non-abelian group of order $6$ is isomorphic to $S_3$.
+    \end{center}
+\end{remark}
+
+\begin{prop}
+        If $\varphi: G \to H$ is an isomorphism, then, in particular,
+    \begin{itemize}
+        \item $\lvert G \rvert = \lvert H \rvert$
+        \item $G$ is abelian if and only if $H$ is abelian
+        \item for all $x \in G$, $\lvert x \rvert = \lvert \varphi(x) \rvert$.
+    \end{itemize}
+\end{prop}
+
+\begin{remark}
+    Intuitively, we can map the generators of $G$ to any elements of $H$ and obtain a homomorphism provided that the relations in $G$ are still satisfied. This create isomorphisms using the group presentations. In particular, in vector spaces, if there is a linear transformation from a vector space $V$ to another vector space $W$ (here there are no relations to satisfy), and $V,W$ both have dimension $n$, and the vectors mapped to from the generators of $V$ span $W$ (the same generators), then this linear transformation is invertible (a vector space isomorphism).
+\end{remark}.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{1.jpeg}
+        \caption{\label{fig:fig1}A Good Example}
+\end{figure}
 
 %%% End document
 
 \newpage
 \printbibliography
 
-\end{document}
+\end{document} 
